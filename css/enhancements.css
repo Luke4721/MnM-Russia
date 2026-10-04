@@ -1,0 +1,156 @@
+/* Fix for transparent body */
+html, body, .page-wrapper, .main-wrapper, .section { background: transparent !important; }
+body { background-color: #fcf5ed !important; background-image: radial-gradient(circle at 50% -20%, #ffffff 0%, transparent 60%), radial-gradient(circle at 100% 100%, #fae3c6 0%, transparent 50%) !important; background-attachment: fixed !important; }
+/* enhancements.css */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessible focus rings */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid #FBA13A;
+  outline-offset: 2px;
+}
+
+/* Subtle, non-layout breaking button polish */
+.btn-primary *, .btn-secondary * { color: #1a1815 !important; }
+.btn-primary, .btn-secondary {
+  background-color: #ffffff !important;
+  color: #1a1815 !important; border-radius: 50px !important;
+  transition: opacity 0.3s ease, transform 0.2s ease !important;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Styling for the custom additive toggles */
+.custom-locale-toggles, .currency-toggles {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.locale-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.locale-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.locale-btn.active {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.locale-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+}
+
+/* Mobile responsive handling for toggles */
+@media (max-width: 991px) {
+  .custom-locale-toggles, .currency-toggles {
+    margin: 10px 0;
+  }
+}
+
+/* --- Fitzroy Travel Luxury Enhancements --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* Typography Elevation */
+h1, .h1, h2, .h2 {
+    font-family: 'Playfair Display', serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* Sophisticated Button Styling */
+.btn-primary *, .btn-secondary * { color: #1a1815 !important; }
+.btn-primary, .btn-secondary {
+  background-color: #ffffff !important;
+  color: #1a1815 !important; border-radius: 50px !important;
+    
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fluid Hover Image Zoom (Luxury Feel) */
+.featured-item__visual, .destination-mobile-item__visual {
+    overflow: hidden !important;
+}
+.featured-item__illustration, .destination-mobile-item__illustration {
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.featured-item:hover .featured-item__illustration, 
+.destination-mobile-item:hover .destination-mobile-item__illustration {
+    transform: scale(1.04) !important;
+}
+
+/* Soften Borders for Elegance */
+.featured-item {
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+
+
+
+/* --- Apple-Style Silky Refinements --- */
+.btn-primary *, .btn-secondary * { color: #1a1815 !important; }
+.btn-primary, .btn-secondary {
+  background-color: #ffffff !important;
+  color: #1a1815 !important;
+  border-radius: 12px !important;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.btn-primary:hover, .btn-secondary:hover {
+  opacity: 1 !important;
+  transform: translateY(-2px) scale(1.01) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
+}
+
+.featured-item__visual, .destination-mobile-item__visual, .statistic-item__visual {
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+  transition: box-shadow 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.featured-item__illustration, .destination-mobile-item__illustration, .statistic-item__illustration {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.featured-item:hover .featured-item__illustration, .destination-mobile-item:hover .destination-mobile-item__illustration, .statistic-item:hover .statistic-item__illustration {
+  transform: scale(1.06) !important;
+}
+.featured-item:hover .featured-item__visual, .destination-mobile-item:hover .destination-mobile-item__visual, .statistic-item:hover .statistic-item__visual {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
+}
+
+/* Remove boxy card backgrounds so they blend seamlessly */
+.featured-item, .statistic-item, .destination-mobile-item, .about-item {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
+
+
+.btn-primary svg path, .btn-secondary svg path { fill: #1a1815 !important; }
