@@ -1,0 +1,349 @@
+/*
+ * MNM Travel — Russia Market Refinements
+ * Drop-in replacement for enhancements.css
+ * Scope: tighten typography hierarchy, locale toggles, nav, package cards,
+ *        about section, combine section, and footer.
+ */
+
+/* ─── 1. BASE RESETS ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ─── 2. LANGUAGE + CURRENCY TOGGLES ─────────────────────────────────────── */
+.custom-locale-toggles,
+.currency-toggles {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0;
+  height: 30px;
+}
+
+.locale-btn {
+  all: unset;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45);
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.locale-btn.active {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+
+.locale-btn:hover:not(.active) {
+  color: rgba(255,255,255,0.75);
+}
+
+.locale-divider {
+  color: rgba(255,255,255,0.15);
+  font-size: 12px;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 1px;
+  background: rgba(255,255,255,0.12);
+  overflow: hidden;
+  font-size: 0; /* hide the | character, use the background line */
+}
+
+.header__r {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Stack the two toggle groups together */
+.custom-locale-toggles {
+  margin-right: 0;
+}
+
+/* ─── 3. HEADER REFINEMENTS ──────────────────────────────────────────────── */
+.header__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tighten nav link spacing */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav__link {
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.12s ease;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+.header-nav__link:hover {
+  background: rgba(255,255,255,0.08);
+  opacity: 1;
+}
+
+/* ─── 4. HERO / INTRO ────────────────────────────────────────────────────── */
+.intro__text .body-xxl {
+  max-width: 520px;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+
+/* Tighten hero headline bottom gap on mobile */
+@media (max-width: 479px) {
+  .intro__headline {
+    margin-bottom: 12px !important;
+  }
+}
+
+/* ─── 5. SECTION HEAD LABELS ─────────────────────────────────────────────── */
+/* Replace the logo-mini + label block — make the label crisper */
+.head__title .body-md {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-top: 4px;
+}
+
+.logo-mini {
+  opacity: 0.35;
+  width: 18px !important;
+  height: auto !important;
+}
+
+/* ─── 6. STATISTIC SECTION ───────────────────────────────────────────────── */
+.statistic-section .h2 {
+  line-height: 1.1;
+}
+
+.statistic-item__head {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 16px;
+}
+
+.statistic-item__head .body-lg-semibold {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.statistic-item__head .body-md.color-white-50 {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* ─── 7. ABOUT SECTION ───────────────────────────────────────────────────── */
+.about__head .body-xl {
+  line-height: 1.65;
+  /* Remove the excessive &nbsp; indentation via CSS instead */
+  text-indent: 0 !important;
+}
+
+/* About stats — tighten grid */
+.about-item__head .h3 {
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.about-item__head .body-l {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.about-item__footer .body-md {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ─── 8. FEATURED / PACKAGES SECTION ────────────────────────────────────── */
+.featured-section .h2 {
+  line-height: 1.1;
+}
+
+.featured-section__head .body-md {
+  line-height: 1.6;
+  opacity: 0.5;
+}
+
+/* Package cards — tighter type */
+.featured-item__head .h4 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.featured-item__cost .body-lg-semibold {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.featured-item__cost .body-md {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+/* Properties row — clean icon alignment */
+.featured-item-property {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 8px;
+}
+
+.featured-item-property:last-child {
+  border-bottom: none;
+}
+
+.featured-item-property__title .title-xs {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.featured-item-property__icon {
+  flex-shrink: 0;
+  opacity: 0.2 !important;
+}
+
+/* Package image — slightly tighter radius */
+.featured-item__illustration {
+  border-radius: 6px;
+}
+
+/* Explore button — cleaner */
+.btn-secondary .button-sm {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── 9. COMBINE / HOW IT WORKS ─────────────────────────────────────────── */
+.combine-section .h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.combine-step__head .h3 {
+  line-height: 1;
+  opacity: 0.25;
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+}
+
+.combine-step__subtitle .title-xs {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.35;
+}
+
+.combine-step__body .body-lg {
+  line-height: 1.3;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ─── 10. DESTINATION SECTION ────────────────────────────────────────────── */
+.destination-section .h2 {
+  line-height: 1.1;
+}
+
+.destination-section .body-xl {
+  line-height: 1.6;
+  opacity: 0.55;
+}
+
+.destination-mobile-item__head .body-lg {
+  font-size: 14px;
+}
+
+.destination-mobile-item__head .body-sm {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  opacity: 0.4;
+}
+
+/* ─── 11. FOOTER ─────────────────────────────────────────────────────────── */
+.footer__copy .button-sm {
+  line-height: 1.4;
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+/* ─── 12. MOBILE GLOBAL ──────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .custom-locale-toggles,
+  .currency-toggles {
+    height: 26px;
+  }
+
+  .locale-btn {
+    font-size: 10px;
+    padding: 0 8px;
+  }
+
+  /* Stack toggles in mobile header more cleanly */
+  .header__r {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 479px) {
+  .h4 {
+    line-height: 1.25;
+  }
+
+  .featured-item__cost .body-lg-semibold {
+    font-size: 14px;
+  }
+}
+
+/* ─── 13. RUSSIA-SPECIFIC: HERO HEADING TWEAK ───────────────────────────── */
+/* Make hero sub-copy slightly more legible on dark hero bg */
+.intro__text .body-xxl {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255,255,255,0.7);
+}
+
+/* ─── 14. COOKIE BANNER ──────────────────────────────────────────────────── */
+.cookie {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.cookie .body-sm {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: 0.55;
+}
+
+/* ─── 15. ACCESSIBILITY ──────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.5);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
