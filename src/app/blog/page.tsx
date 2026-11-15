@@ -19,7 +19,7 @@ export default function Blog() {
       </header>
       <section className="blog wrap">
         <Link href={`/blog/${first.slug}`} className="post post--lead" data-reveal="up">
-          <Bloom id={first.cover} w={1400} h={900} c="#d8d8e0" alt="" sizes="(max-width: 767px) 92vw, 56vw" className="post__img" priority />
+          <Bloom id={first.cover} w={1400} h={900} c="#ecd9bd" alt="" sizes="(max-width: 767px) 92vw, 56vw" className="post__img" priority />
           <div>
             <p className="post__tag">{first.tag} · {first.read} мин · {first.updated}</p>
             <h2 className="display h-l post__title">{first.title}</h2>
@@ -30,7 +30,7 @@ export default function Blog() {
         <div className="posts__grid">
           {rest.map((a, i) => (
             <Link key={a.slug} href={`/blog/${a.slug}`} className="post" data-reveal="up" data-delay={String((i % 3) * 0.08)}>
-              <Bloom id={a.cover} w={1400} h={900} c="#d8d8e0" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
+              <Bloom id={a.cover} w={1400} h={900} c="#ecd9bd" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
               <p className="post__tag">{a.tag} · {a.read} мин</p>
               <h2 className="display h-m post__title">{a.title}</h2>
               <p className="muted">{a.lede}</p>

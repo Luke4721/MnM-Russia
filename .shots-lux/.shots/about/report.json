@@ -1,0 +1,175 @@
+{
+  "url": "http://127.0.0.1:4400/about",
+  "errors": [],
+  "failed": [],
+  "desktop": {
+    "loadMs": 75,
+    "loaderMs": 2392,
+    "settledMs": 4138,
+    "vitals": {
+      "lcpMs": 2628,
+      "lcpElement": "p.lede",
+      "cls": 0
+    },
+    "height": 4813,
+    "overflowX": false,
+    "offenders": [],
+    "h1": [
+      "Индия из\nпервых рук"
+    ],
+    "smallTargets": [
+      "+91 11 4109 4061 122x22",
+      "+91 11 4109 4061 144x23",
+      "admin@mnmtravels.in 195x23"
+    ],
+    "glHidden": [],
+    "title": "О нас: принимающая компания в Дели с 2008 года | MnM Travels",
+    "glOn": false,
+    "scrollFps": {
+      "fps": 60,
+      "worstFrameMs": 17
+    },
+    "nav": {
+      "href": "/",
+      "scrollYAfter": 0,
+      "title": "MnM Travels: Индия в цвете. Авторские туры для путешественников из России"
+    },
+    "idleMotion": true,
+    "idleAt": "35%"
+  },
+  "mobile": {
+    "throttled": true,
+    "loadMs": 2570,
+    "loaderMs": 5288,
+    "settledMs": 7336,
+    "vitals": {
+      "lcpMs": 3084,
+      "lcpElement": "p.display",
+      "cls": 0
+    },
+    "height": 6478,
+    "overflowX": false,
+    "offenders": [],
+    "h1": [
+      "Индия из\nпервых рук"
+    ],
+    "smallTargets": [
+      "+91 11 4109 4061 129x21",
+      "admin@mnmtravels.in 175x21"
+    ],
+    "glHidden": [],
+    "title": "О нас: принимающая компания в Дели с 2008 года | MnM Travels",
+    "glOn": false,
+    "scrollFps": {
+      "fps": 59,
+      "worstFrameMs": 33
+    }
+  },
+  "files": [
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-00-firstpaint.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-01-hero.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-02-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-03-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-04-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-05-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-06-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-07-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-90-transition-a.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-90-transition-b.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-90-transition-c.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-91-after-nav.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\d-92-back.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\k-01-focus.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\k-02-focus.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\k-03-focus.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\k-04-focus.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-01-rest.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-01-hover.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-02-rest.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-02-hover.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-03-rest.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\h-03-hover.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-01-hero.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-02-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-03-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-04-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-05-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\m-06-scroll.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\r-01-hero.png",
+    "E:\\WebFactory\\MnM\\Output\\.shots\\about\\r-02-mid.png"
+  ],
+  "notes": [
+    "desktop FPS runs headless on a software GPU: treat it as a floor, not a measurement of real hardware",
+    "mobile runs at 4x CPU slowdown on slow 4G: mobile.vitals and mobile.scrollFps are the numbers that count",
+    "loadMs: ms from navigation to the load event, null if it had not fired after 30 s (desktop) or 60 s (phone); a heavy page takes long, while visitors see content at vitals.lcpMs. loaderMs: ms until the #loader ended, null when the page has none",
+    "settledMs: ms from navigation by which the first screen stopped changing, never before the fixed wait. null: still changing at the cap, either a long intro or continuous motion (a live shader, video); d-01-hero / m-01-hero tell which. reduced.moving: the screen was still changing 1.5 s after load with reduced motion on"
+  ],
+  "keyboard": {
+    "stops": [
+      "a \"Перейти к содержанию\"",
+      "a \"Monks & Monkeys\"",
+      "a \"Главная\"",
+      "a \"Направления\"",
+      "a \"Галерея\"",
+      "a \"О нас\"",
+      "a \"Блог\"",
+      "a \"Контакты\"",
+      "a \"+91 11 4109 4061\"",
+      "a \"Подобрать тур\"",
+      "a \"+91 11 4109 4061\"",
+      "a \"admin@mnmtravels.in\""
+    ],
+    "skipLinkFirst": false,
+    "noVisibleFocus": [],
+    "invisibleFocus": [],
+    "stuck": false
+  },
+  "hover": {
+    "targets": [
+      {
+        "shot": "h-01",
+        "label": "a \"+91 11 4109 4061\"",
+        "interactive": true,
+        "primary": true,
+        "react": "moves",
+        "changed": [
+          "backgroundSize"
+        ]
+      },
+      {
+        "shot": "h-02",
+        "label": "a \"Написать нам\"",
+        "interactive": true,
+        "primary": true,
+        "react": "moves",
+        "changed": [
+          "transform",
+          "translate"
+        ]
+      },
+      {
+        "shot": "h-03",
+        "label": "a \"Главная\"",
+        "interactive": true,
+        "primary": false,
+        "react": "moves",
+        "changed": [
+          "backgroundSize"
+        ]
+      }
+    ],
+    "noHoverChange": [],
+    "colorOnly": [],
+    "covered": [],
+    "cursorFollower": false
+  },
+  "reduced": {
+    "hiddenText": 0,
+    "moving": false
+  },
+  "a11y": {
+    "violations": [],
+    "serious": 0,
+    "contrastNeedsReview": 35
+  }
+}

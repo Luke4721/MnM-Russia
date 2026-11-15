@@ -11,9 +11,9 @@ export function startPageMotion() {
     document.querySelectorAll<HTMLElement>('[data-manifesto]').forEach((root) => {
       const words = [...root.querySelectorAll<HTMLElement>('.mw')];
       if (!words.length || prefersReducedMotion()) return;
-      words.forEach((w) => gsap.set(w, { color: '#c6c5d3' }));
+      words.forEach((w) => gsap.set(w, { color: '#d2c2b2' }));
       gsap.to(words, {
-        color: (i, el: HTMLElement) => el.dataset.c || '#15122b', stagger: 0.12, ease: 'none',
+        color: (i, el: HTMLElement) => el.dataset.c || '#2a0f1e', stagger: 0.12, ease: 'none',
         scrollTrigger: { trigger: root, start: 'top 78%', end: 'bottom 42%', scrub: 0.6 },
       });
     });

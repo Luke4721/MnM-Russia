@@ -7,6 +7,7 @@ import { deva, display, text } from './fonts';
 import '@/styles/base.css';
 import '@/styles/pages.css';
 import '@/styles/inner.css';
+import '@/styles/india.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', siteName: site.name, locale: 'ru_RU', title: site.title, description: site.description, images: ['/og.png'] },
   twitter: { card: 'summary_large_image' },
 };
-export const viewport: Viewport = { themeColor: '#F6F7FA' };
+export const viewport: Viewport = { themeColor: '#FFF8EC' };
 
 // Runs before first paint: hidden-until-revealed styles only apply when JS and motion are on.
 const flags = `document.documentElement.classList.add('js');if(location.pathname!=='/')document.documentElement.classList.add('no-loader');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')`;

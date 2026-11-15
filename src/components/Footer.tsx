@@ -17,7 +17,7 @@ export function Footer() {
         <div>
           <h2 className="footer__label">Туры</h2>
           <ul className="footer__list">
-            {COLLECTION_ORDER.slice(0, 7).map((c) => <li key={c}><Link className="draw" href={`/destinations?c=${c}`}>{COLLECTIONS[c].name}</Link></li>)}
+            {COLLECTION_ORDER.slice(0, 7).map((c) => <li key={c}><Link className="draw" href={c === 'luxury' ? '/luxury' : `/destinations?c=${c}`}>{COLLECTIONS[c].name}</Link></li>)}
           </ul>
         </div>
         <div>
@@ -31,6 +31,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
+      <p className="footer__deva deva" lang="hi">भारत में आपका स्वागत है</p>
       <p className="footer__word" data-footer-word aria-hidden="true">Индия в цвете</p>
       <div className="footer__legal">
         <span>© {site.name}, Нью-Дели. Принимаем гостей с {site.since} года.</span>

@@ -32,7 +32,7 @@ export default async function Article({ params }: PageProps<'/blog/[slug]'>) {
         <p className="lede" data-reveal="up" data-intro data-delay="0.2">{a.lede}</p>
         <p className="art__meta">{a.tag} · {a.read} мин чтения · {a.updated}</p>
       </header>
-      <div className="art__cover wrap"><Bloom id={a.cover} w={1400} h={900} c="#d8d8e0" alt="" sizes="(max-width: 1440px) 96vw, 1400px" priority className="art__img" origin="40,50" /></div>
+      <div className="art__cover wrap"><Bloom id={a.cover} w={1400} h={900} c="#ecd9bd" alt="" sizes="(max-width: 1440px) 96vw, 1400px" priority className="art__img" origin="40,50" /></div>
       <div className="art__layout wrap g12">
         {toc.length > 2 && (
           <nav className="art__toc" aria-label="Содержание">
@@ -63,7 +63,7 @@ export default async function Article({ params }: PageProps<'/blog/[slug]'>) {
         <div className="posts__grid">
           {others.map((o) => (
             <Link key={o.slug} href={`/blog/${o.slug}`} className="post">
-              <Bloom id={o.cover} w={1400} h={900} c="#d8d8e0" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
+              <Bloom id={o.cover} w={1400} h={900} c="#ecd9bd" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
               <p className="post__tag">{o.tag} · {o.read} мин</p>
               <h3 className="display h-m post__title">{o.title}</h3>
             </Link>

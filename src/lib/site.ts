@@ -20,6 +20,7 @@ export const site = {
 export const NAV = [
   { href: '/', label: 'Главная' },
   { href: '/destinations', label: 'Направления' },
+  { href: '/luxury', label: 'Люкс' },
   { href: '/gallery', label: 'Галерея' },
   { href: '/about', label: 'О нас' },
   { href: '/blog', label: 'Блог' },
@@ -33,7 +34,7 @@ export const MONTHS_GEN = ['января', 'февраля', 'марта', 'ап
 // Gulal pigments: used only for the bloom, month marks and tags.
 export const PIGMENTS = ['#FF8A1F', '#F4B400', '#E5007E', '#3F3FD0', '#00A89D', '#5DB32E', '#E8421B'];
 // One pigment per month, taken from what that month looks like in its 12X region.
-export const MONTH_COLOR = ['#E8421B', '#F4B400', '#E5007E', '#3F3FD0', '#00A89D', '#5DB32E', '#2A67C4', '#00A3C4', '#FF8A1F', '#D99A00', '#C2410C', '#D4006F'];
+export const MONTH_COLOR = ['#C4301A', '#F4B400', '#E5007E', '#3F3FD0', '#00A89D', '#5DB32E', '#2A67C4', '#00A3C4', '#FF8A1F', '#D99A00', '#C2410C', '#D4006F'];
 
 export const COLLECTIONS: Record<Collection, { name: string; short: string; blurb: string }> = {
   '12x': { name: 'Двенадцать месяцев', short: '12X India', blurb: 'Двенадцать авторских маршрутов, по одному на каждый месяц, когда регион раскрывается лучше всего.' },
@@ -62,9 +63,9 @@ export const DEV = ['०', '१', '२', '३', '४', '५', '६', '७', '८
 export const devnum = (n: number) => String(n).split('').map((c) => DEV[+c]).join('');
 
 /** Readable text colour (white or ink) on a given pigment, by WCAG contrast. */
-export function onColor(hex: string): '#ffffff' | '#15122b' {
+export function onColor(hex: string): '#ffffff' | '#2a0f1e' {
   const f = (c: number) => { const v = c / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
   const n = parseInt(hex.slice(1), 16);
   const L = 0.2126 * f(n >> 16) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255);
-  return 1.05 / (L + 0.05) >= (L + 0.05) / 0.0576 ? '#ffffff' : '#15122b';
+  return 1.05 / (L + 0.05) >= (L + 0.05) / 0.0576 ? '#ffffff' : '#2a0f1e';
 }

@@ -1,0 +1,92 @@
+FAIL  site                          og:image https://mnm-travel-russian.vercel.app/og.png does not load (create a 1200x630 image)
+WARN  /                             title is 73 chars (keep <= 70)
+WARN  /                             2 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /                             sentence repeated 2x: "Кашмир (рай на земле) + Ладакх (земля высоких перевалов)"
+WARN  /                             sentence repeated 2x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /about                        meta description is 173 chars (aim 50-160)
+WARN  /contact                      meta description is 185 chars (aim 50-160)
+WARN  /destinations/zolotoy-treugolnik-sharada-1-01  27 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/zolotoy-treugolnik-sharada-1-01  sentence repeated 2x: "После завтрака в 0800 — 0830 ч."
+WARN  /destinations/zolotoy-treugolnik-sharada-1-01  sentence repeated 3x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-2-01  68 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-2-01  sentence repeated 2x: "Гуджарат: львы, храмы, пляжи и фестиваль воздушных змеев"
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-2-01  sentence repeated 2x: "По прибытии — размещение в отеле."
+WARN  /destinations/mozaika-kultur-yuzhnoy-indii-2-02  74 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/mozaika-kultur-yuzhnoy-indii-2-02  sentence repeated 2x: "По прибытии — размещение в отеле и отдых."
+WARN  /destinations/mozaika-kultur-yuzhnoy-indii-2-02  sentence repeated 2x: "По прибытии — регистрация в отеле и отдых."
+WARN  /destinations/ocharovatelnyy-tamil-nadu-2-03  84 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/ocharovatelnyy-tamil-nadu-2-03  sentence repeated 2x: "После обеда свободное время на берег моря."
+WARN  /destinations/sikkim-gimalayskaya-shangri-la-2-04  74 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/legendarnye-gimalai-kharidvar-rishikesh-2-05  27 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/legendarnye-gimalai-kharidvar-rishikesh-2-05  sentence repeated 2x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/uttarakkhand-tayny-gor-i-khramov-2-06  34 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/uttarakkhand-tayny-gor-i-khramov-2-06  sentence repeated 3x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/uttarakkhand-tayny-gor-i-khramov-2-06  sentence repeated 2x: "Дели → Курукшетра → Амритсар → Кангра …"
+WARN  /destinations/yuzhnyy-musson-doroga-pod-dozhdem-2-07  88 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/yuzhnyy-musson-doroga-pod-dozhdem-2-07  sentence repeated 2x: "По прибытии — размещение в отеле и отдых."
+WARN  /destinations/kashmir-ray-na-zemle-ladakkh-zemlya-vysokikh-pereval-2-08  54 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/madkhya-pradesh-ot-tsarskikh-dvortsov-do-skalnykh-pe-2-09  56 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/madkhya-pradesh-ot-tsarskikh-dvortsov-do-skalnykh-pe-2-09  sentence repeated 2x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/karnataka-sokrovischnitsa-indii-2-10  72 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/karnataka-sokrovischnitsa-indii-2-10  sentence repeated 2x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/sokrovischa-makharashtry-peschery-kreposti-i-svyatye-2-11  69 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/odisha-dusha-neveroyatnoy-indii-2-12  68 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/odisha-dusha-neveroyatnoy-indii-2-12  sentence repeated 2x: "Бхубанешвар → Пипли → Рагураджпур → Пури …"
+WARN  /destinations/festival-krasok-kholi-tsvetnaya-skazka-indii-3-08  33 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/festival-krasok-kholi-tsvetnaya-skazka-indii-3-08  sentence repeated 2x: "После завтрака в 0800 — 0830 ч."
+WARN  /destinations/festival-krasok-kholi-tsvetnaya-skazka-indii-3-08  sentence repeated 2x: "Утром экскурсия: ПРОГУЛКА по СТАРОЙ ДЕЛИ с ПОЕЗДКОЙ НА МЕТРО"
+WARN  /destinations/festival-krasok-kholi-tsvetnaya-skazka-indii-3-08  sentence repeated 2x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/indiya-kak-v-kino-radzhastan-tigry-i-tadzh-makhal-4a-25  40 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/indiya-kak-v-kino-radzhastan-tigry-i-tadzh-makhal-4a-25  sentence repeated 2x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/indiya-kak-v-kino-radzhastan-tigry-i-tadzh-makhal-4a-25  sentence repeated 2x: "катание на лодках по озеру Пичола"
+WARN  /destinations/novogodnee-prazdnovanie-v-velikoy-indiyskoy-pustyni-3-05  38 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/korolevskiy-radzhastan-dvortsy-kreposti-i-pustynya-b10  32 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/viza-v-indiyu-dlya-rossiyan  5 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/imperatorskaya-karnataka-maysur-dasara-i-sokrovischa-3-01  76 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/pamyatka-turista-v-indiyu  3 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/usloviya-otmena-i-doplaty  title is 72 chars (keep <= 70)
+WARN  /blog/usloviya-otmena-i-doplaty  10 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/kogda-ehat-v-indiyu-po-mesyacam  title is 72 chars (keep <= 70)
+WARN  /blog/kogda-ehat-v-indiyu-po-mesyacam  2 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/kogda-ehat-v-indiyu-po-mesyacam  sentence repeated 2x: "Август: Кашмир (рай на земле) + Ладакх (земля высоких перевалов)"
+WARN  /blog/prazdniki-indii-dlya-poezdki  heading level skips h1 -> h3
+WARN  /blog/prazdniki-indii-dlya-poezdki  2 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/prazdniki-indii-dlya-poezdki  sentence repeated 4x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /blog/zolotoy-treugolnik-klassika-indii  1 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /blog/zolotoy-treugolnik-klassika-indii  sentence repeated 6x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  29 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Джайпур (Розовый город) был основан в 1727 году махараджей Савай Джай "
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Весь Джайпур был окружен стеной, чтобы охранять город от вражеских вой"
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Город разделен на девять прямоугольных секторов (единственный в то вре"
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Джайпур поразит вас своей колоритностью, яркими красками и шумными баз"
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Он известен своими ювелирными и текстильными изделиями и товарами."
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "После завтрака в 0800 — 0830 ч."
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 2x: "Утром экскурсия: ПРОГУЛКА по СТАРОЙ ДЕЛИ с ПОЕЗДКОЙ НА МЕТРО"
+WARN  /destinations/zolotoy-treugolnik-sharada-goa-1-01a  sentence repeated 3x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/zolotoy-treugolnik-sharada-kkhadzhurakho-1-02  36 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/zolotoy-treugolnik-sharada-kkhadzhurakho-1-02  sentence repeated 2x: "После завтрака в 0800 — 0830 ч."
+WARN  /destinations/zolotoy-treugolnik-sharada-kkhadzhurakho-1-02  sentence repeated 3x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/zolotoy-treugolnik-sharada-varanasi-1-03  34 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/zolotoy-treugolnik-sharada-varanasi-1-03  sentence repeated 2x: "После завтрака в 0800 — 0830 ч."
+WARN  /destinations/zolotoy-treugolnik-sharada-varanasi-1-03  sentence repeated 3x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-3-06  68 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-3-06  sentence repeated 2x: "Гуджарат: львы, храмы, пляжи и фестиваль воздушных змеев"
+WARN  /destinations/gudzharat-lvy-khramy-plyazhi-i-festival-vozdushnykh-3-06  sentence repeated 2x: "По прибытии — размещение в отеле."
+WARN  /destinations/gudzharat-lvy-svyatyni-i-nasledie-indii-4a-28  34 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/gudzharat-lvy-svyatyni-i-nasledie-indii-4a-28  sentence repeated 2x: "Гуджарат: львы, храмы, пляжи и фестиваль воздушных змеев"
+WARN  /destinations/gudzharat-lvy-svyatyni-i-nasledie-indii-4a-28  sentence repeated 2x: "Ахмедабад → Чампанер → Павагадх → Вадодара …"
+WARN  /destinations/karavan-indii-ot-deli-do-mumbai-404  76 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/karavan-indii-ot-deli-do-mumbai-404  sentence repeated 2x: "По прибытии — размещение в отеле."
+WARN  /destinations/karavan-indii-ot-deli-do-mumbai-404  sentence repeated 2x: "По прибытии — размещение в отеле и отдых."
+WARN  /destinations/legendarnye-gimalai-kharidvar-rishikesh-7-legendarnye  17 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/gimalayskaya-simfoniya-sledami-velikikh-mudretsov-406  81 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/gimalayskaya-simfoniya-sledami-velikikh-mudretsov-406  sentence repeated 2x: "Дели → Курукшетра → Амритсар → Кангра …"
+WARN  /destinations/velikaya-klassika-indii-4-01  64 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /destinations/velikaya-klassika-indii-4-01  sentence repeated 3x: "По прибытии размещение в отеле и отдых."
+WARN  /destinations/velikaya-klassika-indii-4-01  sentence repeated 2x: "Дели → Джайпур → Абханери → Фатехпур Сикри …"
+WARN  /                             page weight ~3915 KB (aim < 3 MB)
+WARN  /gallery                      page weight ~37874 KB (aim < 3 MB)
+
+40 pages crawled from http://127.0.0.1:4400/
+heaviest page /gallery: ~37874 KB | html 47 | JS 239 (gz) | CSS 11 (gz) | fonts 78 | images 37500
+1 FAIL, 87 WARN

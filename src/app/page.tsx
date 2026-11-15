@@ -70,7 +70,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__visual">
-            <Bloom id={scenes[0].id} w={scenes[0].w} h={scenes[0].h} c="#9fb4b9" alt={scenes[0].alt} sizes="(max-width: 767px) 100vw, 58vw" className="hero__fallback" priority />
+            <Bloom id={scenes[0].id} w={scenes[0].w} h={scenes[0].h} c="#d9a066" alt={scenes[0].alt} sizes="(max-width: 767px) 100vw, 58vw" className="hero__fallback" priority />
             <HeroBloom scenes={scenes} />
           </div>
           <div className="hero__strip">
@@ -110,7 +110,7 @@ export default function Home() {
             const s = stats[c];
             return (
               <li key={c}>
-                <Link href={`/destinations?c=${c}`} className="index__row" data-preview={imgSrc(preview(c))}>
+                <Link href={c === 'luxury' ? '/luxury' : `/destinations?c=${c}`} className="index__row" data-preview={imgSrc(preview(c))}>
                   <span className="index__name display">{COLLECTIONS[c].name}</span>
                   <span className="index__blurb">{COLLECTIONS[c].blurb}</span>
                   <span className="index__meta">
@@ -198,7 +198,7 @@ export default function Home() {
         <div className="posts__grid">
           {posts.map((a, i) => (
             <Link key={a.slug} href={`/blog/${a.slug}`} className="post" data-reveal="up" data-delay={String(i * 0.08)}>
-              <Bloom id={a.cover} w={1400} h={900} c="#d8d8e0" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
+              <Bloom id={a.cover} w={1400} h={900} c="#ecd9bd" alt="" sizes="(max-width: 767px) 92vw, 30vw" className="post__img" />
               <p className="post__tag">{a.tag} · {a.read} мин</p>
               <h3 className="display h-m post__title">{a.title}</h3>
               <p className="muted">{a.lede}</p>
