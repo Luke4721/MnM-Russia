@@ -2,7 +2,6 @@
 // The catalogue: every program, filterable by collection, month, length, theme and text. State lives in the URL.
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { gsap } from 'gsap';
 import { Ticket } from './Ticket';
 import { COLLECTION_ORDER, MONTHS, MONTH_COLOR, MONTHS_SHORT, plural } from '@/lib/site';
 import type { Catalog, CatItem, Collection } from '@/lib/types';
@@ -15,19 +14,23 @@ const ORDER = [...COLLECTION_ORDER.filter((c) => c !== 'short' && c !== 'neighbo
 export function CatalogClient({ catalog }: { catalog: Catalog }) {
   const router = useRouter(), path = usePathname(), sp = useSearchParams();
   const get = (k: string) => sp.get(k) || '';
-  const c = get('c') as Collection | '', m = +get('m') || 0, t = get('t'), d = get('d'), q = get('q'), s = get('s') || 'rec', onlyPriced = get('p') === '1';
+  const okC = (COLLECTION_ORDER as string[]).includes(get('c')) ? (get('c') as Collection) : '', okM = Math.trunc(+get('m')); const okT = /^\d+$/.test(get('t')) && +get('t') < catalog.tags.length ? get('t') : '', okD = DAYS.some((x) => x[0] === get('d')) ? get('d') : '';
+  const c = okC as Collection | '', m = okM >= 1 && okM <= 12 ? okM : 0, t = okT, d = okD, q = get('q'), s = get('s') || 'rec', onlyPriced = get('p') === '1';
   const [shown, setShown] = useState(PAGE);
   const [open, setOpen] = useState(false);
   const [qText, setQText] = useState(q);
   const grid = useRef<HTMLDivElement>(null);
 
   const set = (patch: Record<string, string>) => {
-    const n = new URLSearchParams(sp.toString());
+    const n = new URLSearchParams(location.search); // read at call time: a debounced search must not overwrite a chip clicked meanwhile
     for (const [k, v] of Object.entries(patch)) { if (v) n.set(k, v); else n.delete(k); }
     router.replace(`${path}${n.size ? '?' + n : ''}`, { scroll: false });
     setShown(PAGE);
   };
   useEffect(() => { const h = setTimeout(() => { if (qText !== q) set({ q: qText }); }, 280); return () => clearTimeout(h); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [qText]);
+
+  useEffect(() => setQText(q), [q]);
+  useEffect(() => setShown(PAGE), [c, m, t, d, q, s, onlyPriced]);
 
   const list = useMemo(() => {
     const ql = q.trim().toLowerCase();
@@ -48,12 +51,6 @@ export function CatalogClient({ catalog }: { catalog: Catalog }) {
   const counts = useMemo(() => { const o: Record<string, number> = {}; catalog.items.forEach((it) => { o[it.c] = (o[it.c] || 0) + 1; }); return o; }, [catalog]);
   const visible = list.slice(0, shown);
 
-  // Tickets arrive with a short rise whenever the result set changes.
-  useEffect(() => {
-    const el = grid.current; if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const cells = el.querySelectorAll('.tickets__cell');
-    gsap.fromTo(cells, { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.035, ease: 'expo.out', overwrite: true, clearProps: 'transform,opacity,visibility' });
-  }, [c, m, t, d, q, s, onlyPriced]);
 
   const active = [c, m, t, d, q, onlyPriced ? 1 : ''].filter(Boolean).length;
   const reset = () => { setQText(''); router.replace(path, { scroll: false }); setShown(PAGE); };

@@ -12,7 +12,6 @@ export function Bloom({ id, w, h, c, alt, sizes, className = '', priority = fals
       ) : (
         <Image className="zoom" src={imgSrc(id)} alt={alt} width={w} height={h} sizes={sizes} priority={priority} quality={72} style={{ width: '100%', height: 'auto' }} />
       )}
-      {veil && <span className="bloom__veil" aria-hidden="true" />}
-    </div>
+          </div>
   );
 }

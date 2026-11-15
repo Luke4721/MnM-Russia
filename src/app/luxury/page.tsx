@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const TRAIN_COPY: Record<string, string> = {
   'sokrovischa': 'Четыре дня на борту: Тадж-Махал, сафари в национальном парке Рантхамбор и форт Амбер. Два ресторана и лаундж-бар на борту, завтраки, обеды и ужины в вагонах.',
   'nasledie': 'Неделя от Мумбая до Дели по городам Раджастхана. Дворцы, форты и пустыня Тар, а ночь вы проводите в поезде.',
-  'dekan': 'Восемь дней по Махараштре и побережью: пещеры Эллоры и Аджанты, Колхапур, Гоа и Синдхудург. Самая южная из королевских дорог.',
+  'dekan': 'Восемь дней по Махараштре и побережью: пещеры Эллоры и Аджанты, Колхапур, Гоа и Синдхудург.',
   'dvorets': 'Раджастхан целиком: Джайпур, Читторгарх, Удайпур, Джайсалмер, Джодхпур и Бхаратпур. Классический «Дворец на колёсах» на восемь дней.',
 };
 const copyFor = (s: string) => Object.entries(TRAIN_COPY).find(([k]) => s.includes(k))?.[1] ?? '';
@@ -31,10 +31,11 @@ const PERKS = [
 ];
 
 function Train({ it, i }: { it: CatItem; i: number }) {
+  const alt = it.s.includes('sokrovischa') ? heroImgs[0] : null; // the document's own cover is a collage
   return (
     <article className="lux-row" data-reveal="up">
       <div className="lux-row__photo">
-        <Bloom id={it.cv} w={it.cw} h={it.ch} c={it.cc} alt={it.t} sizes="(max-width: 767px) 80vw, 40vw" />
+        <Bloom id={alt ? alt.id : it.cv} w={alt ? alt.w : it.cw} h={alt ? alt.h : it.ch} c={it.cc} alt={it.t} sizes="(max-width: 767px) 80vw, 40vw" />
       </div>
       <div className="lux-row__text">
         <span className="lux-row__num deva" aria-hidden="true">{DEVA[i]}</span>

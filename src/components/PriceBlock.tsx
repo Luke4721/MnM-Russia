@@ -64,7 +64,9 @@ export function PriceBlock({ tables, rub, note, kind, code }: { tables: string[]
   const [rateInfo, setRateInfo] = useState('');
   useEffect(() => {
     if (!m || m.cols[0] && !tables[0].flat().some((c) => /USD|\$/.test(c))) return;
-    fetch('https://www.cbr-xml-daily.ru/daily_json.js').then((r) => r.json()).then((j) => { setRate(String(Math.round(j.Valute.USD.Value * 100) / 100).replace('.', ',')); setRateInfo(`курс ЦБ на ${new Date(j.Date).toLocaleDateString('ru-RU')}`); }).catch(() => {});
+    const ac = new AbortController(); const to = setTimeout(() => ac.abort(), 5000);
+    fetch('https://www.cbr-xml-daily.ru/daily_json.js', { signal: ac.signal, referrerPolicy: 'no-referrer' }).then((r) => (r.ok ? r.json() : Promise.reject())).then((j) => { setRate((cur) => cur || String(Math.round(j.Valute.USD.Value * 100) / 100).replace('.', ',')); setRateInfo(`курс ЦБ на ${new Date(j.Date).toLocaleDateString('ru-RU')}`); }).catch(() => {}).finally(() => clearTimeout(to));
+    return () => { ac.abort(); clearTimeout(to); };
   }, [m, tables]);
 
   if (kind === 'request' || !m) {
@@ -101,7 +103,7 @@ export function PriceBlock({ tables, rub, note, kind, code }: { tables: string[]
             </label>
           )}
           <label className="field field--short"><span>Человек</span>
-            <input type="number" min={1} max={20} value={n} onChange={(e) => { const v = Math.max(1, Math.min(20, +e.target.value || 1)); setN(v); setSingle((s) => Math.min(s, v)); }} />
+            <input type="number" min={1} max={20} value={n} onChange={(e) => { const v = Math.max(1, Math.min(20, Math.trunc(+e.target.value) || 1)); setN(v); setSingle((s) => Math.min(s, v)); }} />
           </label>
           {sg && <label className="field field--short"><span>Одноместных номеров</span><input type="number" min={0} max={n} value={singles} onChange={(e) => setSingle(Math.max(0, Math.min(n, +e.target.value || 0)))} /></label>}
           {hbv && <label className="calc__check"><input type="checkbox" checked={hbOn} onChange={(e) => setHb(e.target.checked)} /> <span>Добавить ужины в отеле, +{fmtPrice(hbv.cur, hbv.v)} за человека</span></label>}
