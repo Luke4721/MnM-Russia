@@ -1,0 +1,120 @@
+/* Architecture for the page itself, so the DOM belongs to the same castle as the 3D courtyard. */
+:root {
+  --cusp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='16' viewBox='0 0 44 16'%3E%3Cpath d='M2 16V9c0-5 4-7 10-8 6 1 10 3 10 8v7M22 16V9c0-5 4-7 10-8 6 1 10 3 10 8v7' fill='none' stroke='%23c9a98a' stroke-width='1.2'/%3E%3C/svg%3E");
+  --jali: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22 2l5 13 13 5-13 5-5 13-5-13L4 20l13-5zM0 0l6 6M44 0l-6 6M0 44l6-6M44 44l-6-6' fill='none' stroke='%23b88a66' stroke-width='1'/%3E%3C/svg%3E");
+  --merlon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16'%3E%3Cpath d='M2 16V8l5-8 5 8v8zM16 16V8l5-8 5 8v8z' fill='%23fffdf9'/%3E%3C/svg%3E");
+  --crest: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='34' viewBox='0 0 56 34'%3E%3Cpath d='M4 34V20c0-9 8-14 24-19 16 5 24 10 24 19v14M14 34V21c0-6 5-10 14-13 9 3 14 7 14 13v13' fill='none' stroke='%23a8470f' stroke-width='1.2'/%3E%3Ccircle cx='28' cy='3' r='1.6' fill='%23c9962a'/%3E%3C/svg%3E");
+}
+
+/* frieze above every section, crest above every inner-page title */
+.section::before { content: ''; display: block; height: 16px; margin-bottom: clamp(1.6rem, 3vw, 2.6rem); background: var(--cusp) repeat-x left center; opacity: 0.65; grid-column: 1 / -1; }
+.page-head::before { content: ''; width: 56px; height: 34px; background: var(--crest) no-repeat left bottom; }
+
+/* header: a thin frieze under the bar */
+.site-header { overflow: visible; }
+.site-header::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 16px; background: var(--cusp) repeat-x left top; opacity: 0.4; pointer-events: none; }
+
+/* footer: crenellated parapet */
+.site-footer { position: relative; margin-top: 16px; }
+.site-footer::before { content: ''; position: absolute; left: 0; right: 0; top: -15px; height: 16px; background: var(--merlon) repeat-x left bottom; }
+
+/* arch-topped panels: photographs sit in niches, with a carved inner line */
+.ticket__img, .post__img, .gtile .bloom { border-radius: 50% 50% 0 0 / 22% 22% 0 0; overflow: hidden; }
+.ticket__img, .post__img { position: relative; }
+.ticket__img::after, .post__img::after, .mcard__img::before, .ncard__img::before { content: ''; position: absolute; inset: 7px; z-index: 2; border: 1px solid rgb(255 255 255 / 0.6); border-radius: 50% 50% 0 0 / 22% 22% 0 0; pointer-events: none; }
+.mcard__img::before, .ncard__img::before { border-radius: 999px 999px 0 0; }
+.ncard__img { position: relative; }
+
+/* the month hall: lattice screens and a lit cornice */
+.hs::before { content: ''; position: absolute; inset: 0; z-index: 0; background: var(--jali) repeat; opacity: 0.5; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, #000, transparent 28%, transparent 72%, #000); mask-image: linear-gradient(90deg, #000, transparent 28%, transparent 72%, #000); }
+.hs::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 16px; z-index: 1; background: var(--cusp) repeat-x left bottom; transform: scaleY(-1); opacity: 0.6; pointer-events: none; }
+.hs__head, .hs__track { position: relative; z-index: 2; }
+
+/* frieze marquee reads as a carved band */
+.marquee { border-block: 0; background: linear-gradient(180deg, rgb(255 253 249 / 0.82), rgb(246 228 206 / 0.82)); box-shadow: inset 0 1px 0 rgb(201 169 138 / 0.7), inset 0 -1px 0 rgb(201 169 138 / 0.7); }
+
+/* editorial rules become inlaid lines */
+.why__list li { border-top: 0; border-image: linear-gradient(90deg, var(--ink) 0 18%, var(--line-2) 18% 100%) 1; border-top: 1px solid; }
+.steps li { position: relative; }
+.steps li::before { content: ''; position: absolute; left: 0; top: -4px; width: 7px; height: 7px; background: var(--accent); transform: rotate(45deg); }
+.hero__cap, .lux-hero__note { box-shadow: 0 10px 30px -14px rgb(90 50 20 / 0.4); }
+
+@media (prefers-reduced-motion: reduce) { .hs::before { opacity: 0.3; } }
+
+.credits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem var(--col-gap); padding-bottom: 3rem; font-size: var(--t-s); }
+.credits li { display: grid; gap: 0.1rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--line); }
+.credits span { color: var(--muted); font-size: var(--t-xs); }
+.credits__back { padding-bottom: 5rem; }
+@media (max-width: 767px) { .credits { grid-template-columns: 1fr; } }
+
+/* phones: the 3D window is the hero image, so its DOM twin steps aside and the copy starts below it */
+@media (max-width: 767px) {
+  .header__right { gap: 0.5rem; }
+  .lang button { padding: 0.25rem 0.45rem; }
+  .brand__name { font-size: 1.05rem; }
+  .gl .hero__photo, .gl .lux-hero__arch { display: none; }
+  .gl .hero, .gl .lux-hero { padding-top: calc(var(--header-h) + 46svh); }
+  .hero::before { background: linear-gradient(180deg, rgb(251 247 240 / 0) 0%, rgb(251 247 240 / 0) 34%, rgb(251 247 240 / 0.92) 58%); }
+}
+
+/* a soft scrim behind inner-page headings so the room behind them never fights the type */
+.page-head { position: relative; isolation: isolate; }
+.page-head::after { content: ''; position: absolute; inset: 0 -4vw 0 -4vw; z-index: -1; background: linear-gradient(90deg, rgb(251 247 240 / 0.86) 0%, rgb(251 247 240 / 0.7) 52%, rgb(251 247 240 / 0) 100%); pointer-events: none; }
+
+/* palace doors */
+.doors { position: fixed; inset: 0; z-index: 300; pointer-events: none; visibility: hidden; perspective: 2200px; overflow: hidden; }
+.door { position: absolute; top: 0; bottom: 0; width: 50.3%; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform;
+  background:
+    radial-gradient(circle at 50% 50%, #f0cf7c 0 2.2px, #b98a2c 2.6px, transparent 3.6px) 0 0 / 44px 44px,
+    repeating-linear-gradient(90deg, rgb(60 30 10 / 0.12) 0 2px, transparent 2px 9px),
+    linear-gradient(180deg, #a86a40 0%, #8d5430 55%, #774526 100%);
+  box-shadow: inset 0 0 0 10px #6c3f23, inset 0 0 0 12px #d4a548, inset 0 0 90px rgb(40 18 6 / 0.5); }
+.door--l { left: 0; transform-origin: 0 50%; }
+.door--r { right: 0; transform-origin: 100% 50%; }
+.door::before { content: ''; position: absolute; inset: 9% 11%; border: 2px solid #d4a548; border-radius: 999px 999px 0 0; box-shadow: inset 0 0 0 8px rgb(60 30 10 / 0.18), 0 0 0 6px rgb(60 30 10 / 0.25); }
+.door__ring { position: absolute; top: 50%; width: clamp(54px, 7vw, 96px); aspect-ratio: 1; border-radius: 50%; border: clamp(5px, 0.7vw, 9px) solid #e1b657; background: radial-gradient(circle at 35% 30%, #f6dd9a, #b88728 70%); box-shadow: 0 6px 14px rgb(30 12 4 / 0.5); }
+.door--l .door__ring { right: 6%; transform: translateY(-50%); }
+.door--r .door__ring { left: 6%; transform: translateY(-50%); }
+.doors__seam { position: absolute; top: 0; bottom: 0; left: calc(50% - 2px); width: 4px; background: linear-gradient(180deg, transparent, #f6dd9a 20%, #f6dd9a 80%, transparent); filter: blur(1px); opacity: 0; }
+
+/* catalogue: filters sit beside the collection chips, cards are real niches */
+.catalog__bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 1rem; }
+.catalog__toggle { margin-top: 0; }
+.catalog__bar .filters { grid-column: 1 / -1; }
+.ticket__img { aspect-ratio: 4 / 5; border-radius: 999px 999px 0 0; }
+.ticket__img::after { border-radius: 999px 999px 0 0; border-bottom: 0; inset: 8px 8px 0; }
+.ticket { transition: transform 0.5s var(--ease-out); }
+@media (hover: hover) { .ticket:hover { transform: translateY(-6px); } }
+.catalog .page-head { padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* royal header: melts into the room at the top, turns to frosted ivory with a gold hairline once you move */
+.site-header { background: linear-gradient(180deg, rgb(251 247 240 / 0.86), rgb(251 247 240 / 0)); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; transition: background 0.5s, box-shadow 0.5s, backdrop-filter 0.5s; }
+.site-header::before { content: ''; position: absolute; inset: auto 0 0 0; height: 1px; background: linear-gradient(90deg, transparent, #c99a3c 18%, #ecd49a 50%, #c99a3c 82%, transparent); opacity: 0; transition: opacity 0.5s; pointer-events: none; }
+.site-header.is-solid { background: rgb(251 247 240 / 0.78); -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3); box-shadow: 0 14px 34px -22px rgb(110 74 12 / 0.45); }
+.site-header.is-solid::before { opacity: 1; }
+.site-header::after { opacity: 0; transition: opacity 0.5s; }
+.site-header.is-solid::after { opacity: 0.45; }
+.brand__name { letter-spacing: 0.06em; text-transform: uppercase; font-size: 1.05rem; font-weight: 500; }
+.brand img { filter: drop-shadow(0 1px 6px rgb(201 154 60 / 0.5)); }
+.site-nav ul { font-family: var(--f-display); font-size: 1.02rem; letter-spacing: 0.04em; }
+.site-nav .draw { position: relative; background: none; padding-block: 0.5em; }
+.site-nav .draw::after { content: ''; position: absolute; left: 50%; bottom: -2px; width: 6px; height: 6px; background: linear-gradient(135deg, #8a6320, #ecd49a); transform: translateX(-50%) rotate(45deg) scale(0); transition: transform 0.35s var(--ease-out); }
+.site-nav .draw[aria-current='page']::after { transform: translateX(-50%) rotate(45deg) scale(1); }
+@media (hover: hover) { .site-nav .draw:hover::after { transform: translateX(-50%) rotate(45deg) scale(1); } }
+.header__right .btn { background: linear-gradient(135deg, #8a6320 0%, #d9b45f 45%, #a8791f 100%); color: #fff; box-shadow: inset 0 0 0 1px rgb(255 240 200 / 0.55), 0 8px 20px -10px rgb(138 99 32 / 0.7); }
+@media (hover: hover) { .header__right .btn:hover { background: linear-gradient(135deg, #a8791f, #f1deaa 50%, #8a6320); color: #3a2608; } }
+@media (max-width: 960px) { .site-nav { background: rgb(251 247 240 / 0.96); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); } }
+
+/* opening sequence */
+.pre { position: fixed; inset: 0; z-index: 400; display: none; place-items: center; }
+.is-pre .pre { display: grid; }
+html.is-pre { overflow: hidden; }
+.pre__half { position: absolute; left: 0; right: 0; height: 50.2%; background: radial-gradient(120% 140% at 50% 100%, #fdf1e4, #f7e3cf 60%, #f0d3b8); }
+.pre__half--t { top: 0; } .pre__half--b { bottom: 0; background: radial-gradient(120% 140% at 50% 0%, #fdf1e4, #f7e3cf 60%, #f0d3b8); }
+.pre__half::after { content: ''; position: absolute; inset: 0; background: var(--jali) repeat; opacity: 0.35; }
+.pre__seam { position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; background: linear-gradient(90deg, transparent, #c99a3c, #f6dd9a, #c99a3c, transparent); }
+.pre__c { position: relative; display: grid; justify-items: center; gap: 0.7rem; text-align: center; }
+.pre__art { width: clamp(110px, 22vw, 170px); height: auto; filter: drop-shadow(0 6px 18px rgb(201 154 60 / 0.35)); }
+.pre__name { font-family: var(--f-display); font-size: clamp(1rem, 0.8rem + 1.2vw, 1.5rem); letter-spacing: 0.22em; background: linear-gradient(135deg, #8a6320, #c99a3c 45%, #8a6320); -webkit-background-clip: text; background-clip: text; color: transparent; opacity: 0; }
+.pre__sub { font-size: var(--t-xs); letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+.pre__n { font-family: var(--f-display); font-size: 0.9rem; color: #a8791f; font-variant-numeric: tabular-nums; letter-spacing: 0.15em; }

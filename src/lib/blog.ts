@@ -13,7 +13,11 @@ export type Block =
   | { t: 'tours'; items: Pkg[] };
 export type Article = { slug: string; title: string; lede: string; updated: string; read: number; cover: string; tag: string; blocks: Block[] };
 
-const cover = { visa: 'a39aa2b973', memo: 'a84f4d50b9', manners: '2a27636eab', terms: '33efeb1f41', calendar: 'cdaeef1594', fest: '134c2303bf', gold: '260cd17ed0' };
+import covers from '@/data/blog-covers.json';
+const base = { visa: 'a39aa2b973', memo: 'a84f4d50b9', manners: '2a27636eab', terms: '33efeb1f41', calendar: 'cdaeef1594', fest: '134c2303bf', gold: '260cd17ed0' };
+// dedicated, never-reused photographs when sourced (order: visa, memo, manners, terms, calendar, fest, gold)
+const keys = ['visa', 'memo', 'manners', 'terms', 'calendar', 'fest', 'gold'] as const;
+const cover = Object.fromEntries(keys.map((k, i) => [k, (covers as (string | null)[])[i] || base[k]])) as typeof base;
 
 function visa(): Article {
   return {

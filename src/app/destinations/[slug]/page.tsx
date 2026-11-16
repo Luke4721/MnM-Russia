@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Bloom } from '@/components/Bloom';
+import { CastleWindow } from '@/components/CastleWindow';
 import { PriceBlock } from '@/components/PriceBlock';
 import { RequestForm } from '@/components/RequestForm';
 import { RouteMap } from '@/components/RouteMap';
@@ -35,6 +36,9 @@ export default async function Package({ params }: PageProps<'/destinations/[slug
   if (!p) notFound();
   const price = p.price.kind !== 'request' ? p.price : null;
   const rel = related(p, 3);
+  const sib = allPackages.filter((x) => x.collection === p.collection);
+  const at = sib.findIndex((x) => x.slug === p.slug);
+  const prev = sib[(at - 1 + sib.length) % sib.length], next = sib[(at + 1) % sib.length];
   const cat = catalog.items.filter((i) => rel.some((r) => r.slug === i.s));
   const sights = (n: number) => (p.summary.find((s) => s.n === n)?.sights || '').split(' / ').map((s) => s.trim()).filter(Boolean).slice(0, 9);
   const detailed = p.program.length > 1;
@@ -55,6 +59,7 @@ export default async function Package({ params }: PageProps<'/destinations/[slug
         {p.tagline && <p className="pkg__tag display" data-reveal="up" data-intro data-delay="0.2">{p.tagline}</p>}
       </header>
 
+      {p.cover && <CastleWindow img={p.cover} />}
       {p.cover && (
         <div className="pkg__hero wrap">
           <Bloom id={p.cover.id} w={p.cover.w} h={p.cover.h} c={p.cover.c} alt={p.title} sizes="(max-width: 1440px) 96vw, 1400px" priority className="pkg__cover" origin="35,55" />
@@ -173,6 +178,13 @@ export default async function Package({ params }: PageProps<'/destinations/[slug
           <h2 id="rel-h" className="display h-xl">Похожие поездки</h2>
           <div className="tickets">{cat.map((it) => <div key={it.s} className="tickets__cell"><Ticket it={it} /></div>)}</div>
         </section>
+      )}
+
+      {sib.length > 1 && (
+        <nav className="pkg__pager wrap" aria-label="Соседние программы">
+          <Link href={`/destinations/${prev.slug}`}><span>← Предыдущая</span><strong>{prev.title}</strong></Link>
+          <Link href={`/destinations/${next.slug}`}><span>Следующая →</span><strong>{next.title}</strong></Link>
+        </nav>
       )}
 
       <div className="pkg__bar" role="region" aria-label="Заказ">

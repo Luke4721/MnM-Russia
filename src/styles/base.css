@@ -11,7 +11,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 html { -webkit-text-size-adjust: none; background: var(--snow); color: var(--ink); scroll-behavior: smooth; }
-body { min-height: 100dvh; background: var(--snow); font-family: var(--f-body); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+body { min-height: 100dvh; background: transparent; font-family: var(--f-body); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img, svg, canvas { display: block; max-width: 100%; }
 img { height: auto; }
 input, button, textarea, select { font: inherit; color: inherit; }
@@ -75,7 +75,7 @@ button.chip[aria-pressed='true'] span { color: rgb(255 255 255 / 0.7); }
 .brand__name { font-family: var(--f-display); font-size: 1.35rem; font-weight: 500; white-space: nowrap; }
 .site-nav ul { display: flex; justify-content: center; gap: clamp(1rem, 2.2vw, 2.4rem); font-size: var(--t-s); }
 .header__right { display: flex; align-items: center; gap: 1.1rem; }
-.header__phone { font-size: var(--t-s); font-variant-numeric: tabular-nums; }
+.header__phone { white-space: nowrap; font-size: var(--t-s); font-variant-numeric: tabular-nums; }
 .menu-btn { display: none; min-height: 2.75rem; font-size: var(--t-s); font-weight: 500; }
 .site-footer { padding: clamp(3.5rem, 7vw, 7rem) var(--gutter) 2rem; border-top: 1px solid var(--line); background: var(--paper); }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--col-gap); font-size: var(--t-s); }

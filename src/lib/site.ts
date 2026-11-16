@@ -18,13 +18,13 @@ export const site = {
 };
 
 export const NAV = [
-  { href: '/', label: 'Главная' },
-  { href: '/destinations', label: 'Направления' },
-  { href: '/luxury', label: 'Люкс' },
-  { href: '/gallery', label: 'Галерея' },
-  { href: '/about', label: 'О нас' },
-  { href: '/blog', label: 'Блог' },
-  { href: '/contact', label: 'Контакты' },
+  { href: '/', label: 'Главная', en: 'Home' },
+  { href: '/destinations', label: 'Направления', en: 'Destinations' },
+  { href: '/luxury', label: 'Люкс', en: 'Luxury' },
+  { href: '/gallery', label: 'Галерея', en: 'Gallery' },
+  { href: '/about', label: 'О нас', en: 'About' },
+  { href: '/blog', label: 'Блог', en: 'Blog' },
+  { href: '/contact', label: 'Контакты', en: 'Contact' },
 ];
 
 export const MONTHS = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];

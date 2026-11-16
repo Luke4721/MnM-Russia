@@ -9,6 +9,9 @@ export default function NotFound() {
       <h1 className="display h-xl" data-split="lines" data-intro>Здесь пока серо</h1>
       <p className="lede">Такой страницы нет, но цвета в Индии хватит на всех. Вернитесь к программам.</p>
       <Link className="btn" href="/destinations"><span className="btn__label">Смотреть направления</span><span className="btn__arrow" aria-hidden="true">→</span></Link>
+      <ul className="nf__links">
+        {[['/', 'Главная'], ['/destinations', 'Направления'], ['/luxury', 'Люкс'], ['/gallery', 'Галерея'], ['/blog', 'Блог'], ['/contact', 'Контакты'], ['/site-map', 'Карта сайта']].map(([h, l]) => <li key={h}><Link className="draw" href={h}>{l}</Link></li>)}
+      </ul>
     </section>
   );
 }

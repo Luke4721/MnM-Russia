@@ -2,11 +2,20 @@ import type { Metadata, Viewport } from 'next';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { RevealInit } from '@/components/RevealInit';
+import { Motion } from '@/components/Motion';
+import { heroImgs } from '@/lib/data';
+import { Aura } from '@/components/Aura';
+import { Doors } from '@/components/Doors';
+import { Preloader } from '@/components/Preloader';
+import { LangProvider } from '@/components/Lang';
 import { site } from '@/lib/site';
 import { deva, display, text } from './fonts';
 import '@/styles/base.css';
 import '@/styles/pages.css';
 import '@/styles/inner.css';
+import '@/styles/motion.css';
+import '@/styles/luxury.css';
+import '@/styles/castle.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,7 +28,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: '#FBF7F0' };
 
 // Runs before first paint: hidden-until-revealed styles only apply when JS and motion are on.
-const flags = `document.documentElement.classList.add('js')`;
+const flags = `document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('seen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-pre')}catch(e){}`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -42,12 +51,18 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <script dangerouslySetInnerHTML={{ __html: flags }} />
       </head>
       <body>
+        <LangProvider>
+        <Aura home={heroImgs[0]} lux={heroImgs[3]} />
         <a className="skip-link" href="#main">Перейти к содержанию</a>
         <Header />
         <main id="main" tabIndex={-1}>{children}</main>
         <Footer />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
         <RevealInit />
+        <Motion />
+        <Doors />
+        <Preloader />
+        </LangProvider>
       </body>
     </html>
   );
