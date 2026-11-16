@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { preload } from 'react-dom';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { RevealInit } from '@/components/RevealInit';
@@ -45,6 +46,7 @@ const jsonLd = {
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
+  preload(`/p/${heroImgs[0].id}.jpg`, { as: 'image', fetchPriority: 'high', crossOrigin: 'anonymous' });
   return (
     <html lang="ru" className={`${display.variable} ${text.variable} ${deva.variable}`} suppressHydrationWarning>
       <head>

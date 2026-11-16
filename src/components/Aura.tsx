@@ -7,7 +7,10 @@ import { useLang } from './Lang';
 import { MOODS } from './moods';
 import type { Img, SceneName, ToneName } from './Castle3D';
 
-const Castle = dynamic(() => import('./Castle3D'), { ssr: false });
+const load = () => import('./Castle3D');
+const Castle = dynamic(load, { ssr: false });
+// start fetching three.js and the scene as this script runs, in parallel with hydration, not after it
+if (typeof window !== 'undefined') load();
 
 function roomFor(path: string): { scene: SceneName; tone: ToneName; hero: boolean } {
   if (path === '/') return { scene: 'courtyard', tone: 'pink', hero: true };
