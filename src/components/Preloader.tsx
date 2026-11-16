@@ -9,7 +9,7 @@ export function Preloader() {
   useEffect(() => {
     const el = root.current, html = document.documentElement;
     if (!el || !html.classList.contains('is-pre')) return;
-    const finish = () => { html.classList.remove('is-pre'); try { sessionStorage.setItem('seen', '1'); } catch {} el.remove(); };
+    const finish = () => { html.classList.remove('is-pre'); el.remove(); };
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
     const q = (s: string) => el.querySelectorAll(s);
     const num = el.querySelector<HTMLElement>('.pre__n')!;
@@ -31,7 +31,7 @@ export function Preloader() {
       .fromTo(q('.pre__name'), { opacity: 0, y: 14, letterSpacing: '0.5em' }, { opacity: 1, y: 0, letterSpacing: '0.22em', duration: 1.1, ease: 'power3.out' }, 0.9)
       .to(count, { v: 100, duration: 1.7, ease: 'power1.inOut', onUpdate: () => { num.textContent = String(Math.round(count.v)).padStart(2, '0'); } }, 0.2)
       .add(() => { const go = () => { removeEventListener('castle-ready', onReady); exit(); }; if (ready || html.classList.contains('gl')) go(); else { addEventListener('castle-ready', go, { once: true }); setTimeout(go, 2000); } });
-    return () => { tl.kill(); removeEventListener('castle-ready', onReady); html.classList.remove('is-pre'); };
+    return () => { tl.kill(); removeEventListener('castle-ready', onReady); };
   }, []);
 
   return (

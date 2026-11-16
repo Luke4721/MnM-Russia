@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: '#FBF7F0' };
 
 // Runs before first paint: hidden-until-revealed styles only apply when JS and motion are on.
-const flags = `document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('seen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-pre')}catch(e){}`;
+const flags = `document.documentElement.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-pre')}catch(e){}`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
