@@ -21,7 +21,7 @@ export function Motion() {
     document.documentElement.classList.add('motion');
     const small = innerWidth < 768;
 
-    const lenis = new Lenis({ lerp: 0.1, anchors: true });
+    const lenis = new Lenis({ lerp: 0.1, anchors: { offset: -88 } });
     lenis.on('scroll', ScrollTrigger.update);
     const tick = (t: number) => lenis.raf(t * 1000);
     gsap.ticker.add(tick);

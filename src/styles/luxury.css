@@ -1,13 +1,13 @@
 /* Luxury: champagne, gilded frames, station-line routes. Light, never dark. */
-.lux { --g1: #8a6320; --g2: #c99a3c; --g3: #ecd49a; --gold-grad: linear-gradient(135deg, #8a6320 0%, #e6c987 38%, #a8791f 62%, #f1deaa 100%); }
+.lux { --gold-text: linear-gradient(135deg, #5e3f0c 0%, #946a18 50%, #6b4710 100%); --g1: #8a6320; --g2: #c99a3c; --g3: #ecd49a; --gold-grad: linear-gradient(135deg, #8a6320 0%, #e6c987 38%, #a8791f 62%, #f1deaa 100%); }
 .lux-hero { position: relative; overflow: hidden; isolation: isolate; }
 .lux-hero__copy, .lux-hero__arch { position: relative; z-index: 2; }
-.lux .gold { font-style: italic; background: linear-gradient(100deg, #8a6320 0%, #c99a3c 35%, #e8cb86 50%, #c99a3c 65%, #8a6320 100%); background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 9s linear infinite; }
+.lux .gold { font-style: italic; background: linear-gradient(100deg, #5e3f0c 0%, #86601a 35%, #b08024 50%, #86601a 65%, #5e3f0c 100%); background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 9s linear infinite; }
 @keyframes shimmer { to { background-position: 220% center; } }
 @media (prefers-reduced-motion: reduce) { .lux .gold { animation: none; } }
 .lux__eyebrow { color: var(--g1); letter-spacing: 0.3em; }
 .lux-hero__facts { display: flex; gap: clamp(1.4rem, 4vw, 3.2rem); padding-top: 1.1rem; border-top: 1px solid #e0cb9c; }
-.lux-hero__facts dt { font-family: var(--f-display); font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.8rem); line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lux-hero__facts dt { font-family: var(--f-display); font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.8rem); line-height: 1; background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lux-hero__facts dd { font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .lux-hero__tilt { position: absolute; inset: 0; }
 .lux-frame { position: absolute; inset: 0; padding: 10px; border-radius: 999px 999px 0 0; background: var(--gold-grad); box-shadow: 0 40px 70px -36px rgb(110 74 12 / 0.5), 0 0 0 1px rgb(138 99 32 / 0.25); }
@@ -18,7 +18,7 @@
 .lux-sec--tint { background: linear-gradient(180deg, rgb(243 228 196 / 0.6), rgb(250 242 224 / 0.35)); }
 .lux-row__photo { position: relative; }
 .lux-row__photo .lux-frame { position: absolute; inset: 0; }
-.lux-row__num { position: absolute; top: -1.6rem; left: 0.3rem; z-index: 3; font-family: var(--f-deva); font-size: clamp(4rem, 3rem + 4vw, 7rem); line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 0 rgb(255 255 255 / 0.5)); }
+.lux-row__num { position: absolute; top: -1.6rem; left: 0.3rem; z-index: 3; font-family: var(--f-deva); font-size: clamp(4rem, 3rem + 4vw, 7rem); line-height: 1; background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 0 rgb(255 255 255 / 0.5)); }
 .lux-row:nth-child(even) .lux-row__num { left: auto; right: -1.2rem; }
 .lux-row__meta { color: var(--g1); }
 .lux-stations { display: flex; flex-wrap: wrap; align-items: center; row-gap: 0.5rem; padding-block: 0.4rem; }
@@ -29,9 +29,13 @@
 .lux-card a { display: grid; gap: 0.8rem; padding: 1.8rem; position: relative; }
 .lux-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgb(230 201 135 / 0.3), transparent 58%); }
 .lux-card:hover::after { opacity: 1; }
-.lux-card__days { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lux-card__days { background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lux-card__days small { -webkit-text-fill-color: var(--g1); }
 .lux-list li { border-top-color: #dcc388; }
-.lux-list .deva { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.2rem; }
+.lux-list .deva { background: var(--gold-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.2rem; }
 .lux-cta__head { justify-items: start; }
 @media (max-width: 767px) { .lux-row__num { left: -0.2rem !important; right: auto !important; } .lux-hero__facts { flex-wrap: wrap; } }
+
+/* legibility: deep gold for gilded type, an ivory glow behind the hero copy, readable eyebrow */
+.lux .eyebrow { color: #6b4710; font-weight: 500; }
+.lux-hero__copy::before { content: ''; position: absolute; inset: -8% -16% -8% -12%; z-index: -1; background: radial-gradient(closest-side, rgb(251 247 240 / 0.8) 55%, rgb(251 247 240 / 0)); pointer-events: none; }

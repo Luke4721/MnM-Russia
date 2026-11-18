@@ -25,13 +25,15 @@ export function Preloader() {
     };
     const paths = Array.from(q('.pre__draw')) as SVGGeometryElement[];
     paths.forEach((p) => { const l = p.getTotalLength(); p.style.strokeDasharray = `${l}`; p.style.strokeDashoffset = `${l}`; });
+    const skip = () => { if (tl.time() > 0.6) { removeEventListener('castle-ready', onReady); tl.kill(); exit(); } }; // any tap or key opens the curtain early
+    addEventListener('pointerdown', skip, { once: true }); addEventListener('keydown', skip, { once: true });
     const tl = gsap.timeline();
     tl.to(paths, { strokeDashoffset: 0, duration: 1.3, ease: 'power2.inOut', stagger: 0.14 }, 0.1)
       .fromTo(q('.pre__fill'), { opacity: 0 }, { opacity: 1, duration: 0.9 }, 1.1)
       .fromTo(q('.pre__name'), { opacity: 0, y: 14, letterSpacing: '0.5em' }, { opacity: 1, y: 0, letterSpacing: '0.22em', duration: 1.1, ease: 'power3.out' }, 0.9)
       .to(count, { v: 100, duration: 1.7, ease: 'power1.inOut', onUpdate: () => { num.textContent = String(Math.round(count.v)).padStart(2, '0'); } }, 0.2)
       .add(() => { const go = () => { removeEventListener('castle-ready', onReady); exit(); }; if (ready || html.classList.contains('gl')) go(); else { addEventListener('castle-ready', go, { once: true }); setTimeout(go, 2000); } });
-    return () => { tl.kill(); removeEventListener('castle-ready', onReady); };
+    return () => { tl.kill(); removeEventListener('castle-ready', onReady); removeEventListener('pointerdown', skip); removeEventListener('keydown', skip); };
   }, []);
 
   return (

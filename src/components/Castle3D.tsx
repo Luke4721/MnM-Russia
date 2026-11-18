@@ -62,7 +62,7 @@ function useRig(opts: { tone: Tone; inner: boolean; calm: boolean; onReady: () =
     fogC.lerp(target, 0.03); (scene.background as THREE.Color).copy(fogC); (scene.fog as THREE.Fog).color.copy(fogC);
     const lead = Math.max(0, 1 - scrollY / (innerHeight * 0.8)), want = size.width < 768 ? 0 : -lead * size.width * 0.17;
     if (Math.abs(want - off.current) > 0.5) { off.current = want; (camera as THREE.PerspectiveCamera).setViewOffset(size.width, size.height, want, 0, size.width, size.height); }
-    const base = opts.inner ? 0.42 : 0.1, top = opts.inner ? 0.74 : 0.7;
+    const base = opts.inner ? 0.62 : 0.1, top = opts.inner ? 0.9 : 0.88;
     document.documentElement.style.setProperty('--veil', String(base + (top - base) * Math.min(1, scrollY / (innerHeight * 0.9))));
   });
 }
@@ -94,9 +94,9 @@ function Hall({ kind, tone, img, small, inner, calm, onReady }: { kind: 'courtya
     for (const cx of [-1.4, 0, 1.4]) for (const cy of [2.0, 4.6]) jaliS.holes.push(new THREE.Path(cusped(0.42, cy + 0.2, cy - 0.7, 3, 0.06, 14).map((p) => new THREE.Vector2(p.x + cx, p.y)).reverse()));
     const hole = cusped(1.5, 0.5, -2);
     const endS = new THREE.Shape([new THREE.Vector2(-7.7, -6), new THREE.Vector2(7.7, -6), new THREE.Vector2(7.7, 6), new THREE.Vector2(-7.7, 6)]); endS.holes.push(new THREE.Path(hole.slice().reverse()));
-    const ring = (r: number, b: number) => { const s = new THREE.Shape(cusped(r, 0.5, b, 5, 0.16)); s.holes.push(new THREE.Path(hole.slice().reverse())); return s; };
+    const ring = (r: number, b: number, k = 1) => { const s = new THREE.Shape(cusped(r, 0.5, b, 5, 0.16)); s.holes.push(new THREE.Path(hole.map((p) => new THREE.Vector2(p.x * k, 0.5 + (p.y - 0.5) * k)).reverse())); return s; };
     const niche = (x: number) => { const g = ex(new THREE.Shape(cusped(0.55, 1.2, -1.2, 3, 0.07, 18)), 0.1); g.translate(x, 0, 0); return g; };
-    return { arch: ex(archShape, 0.4), wall: ex(wallS, 0.4), jali: ex(jaliS, 0.4), end: ex(endS, 0.6), ring1: ex(ring(1.78, -2.28), 0.28), ring2: ex(ring(2.12, -2.62), 0.16), nL: niche(-3.7), nR: niche(3.7), base: new THREE.BoxGeometry(0.7, 0.3, 0.7), cap: new THREE.BoxGeometry(0.8, 0.26, 0.8), brk: new THREE.BoxGeometry(0.26, 0.7, 0.9), capS: new THREE.BoxGeometry(0.42, 0.18, 0.42) };
+    return { arch: ex(archShape, 0.4), wall: ex(wallS, 0.4), jali: ex(jaliS, 0.4), end: ex(endS, 0.6), ring1: ex(ring(1.78, -2.28), 0.28), ring2: ex(ring(2.12, -2.62, 1.04), 0.16), nL: niche(-3.7), nR: niche(3.7), base: new THREE.BoxGeometry(0.7, 0.3, 0.7), cap: new THREE.BoxGeometry(0.8, 0.26, 0.8), brk: new THREE.BoxGeometry(0.26, 0.7, 0.9), capS: new THREE.BoxGeometry(0.42, 0.18, 0.42) };
   }, []);
   const merlons = useRef<THREE.InstancedMesh>(null);
   useEffect(() => {
@@ -119,7 +119,7 @@ function Hall({ kind, tone, img, small, inner, calm, onReady }: { kind: 'courtya
       <ambientLight intensity={0.95} color="#fff1dc" /><hemisphereLight args={['#ffe9c8', '#9a5a38', 0.55]} />
       <directionalLight position={[-6, 10, 8]} intensity={2.1} color="#ffd9a0" /><directionalLight position={[8, 4, -4]} intensity={0.6} color="#ffb98a" />
       <mesh geometry={g0.plane} position={[0, 0, mid]} rotation={[-Math.PI / 2, 0, 0]} scale={[14, L, 1]}><meshStandardMaterial map={floorTex} flatShading roughness={0.9} /></mesh>
-      {cfg.water && <><mesh geometry={g0.plane} material={M.water} position={[0, 0.03, mid]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.1, L, 1]} /><mesh geometry={g0.box} material={M.trim} position={[0, 0.02, mid]} scale={[1.6, 0.04, L]} /></>}
+      {cfg.water && <><mesh geometry={g0.plane} material={M.water} position={[0, 0.06, mid]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.1, L, 1]} /><mesh geometry={g0.box} material={M.trim} position={[0, 0.02, mid]} scale={[1.6, 0.04, L]} /></>}
       {mods.map((i) => (
         <group key={i} position={[0, 0, 2 - i * LEN]}>
           <mesh geometry={G.arch} material={M.arch} position={[0, 0.25, -0.2]} />
@@ -268,7 +268,7 @@ export default function Castle3D({ scene, tone, img, inner, calm, onReady }: { s
   const small = typeof innerWidth !== 'undefined' && innerWidth < 768;
   const common = { tone: TONES[tone], small, inner, calm, onReady };
   return (
-    <Canvas dpr={[1, small ? 1 : 1.5]} camera={{ fov: 40, position: [0, 2.5, 4], near: 0.1, far: 120 }} gl={{ antialias: !small, powerPreference: 'high-performance' }} style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none' }}>
+    <Canvas dpr={[1, small ? 1 : 1.5]} camera={{ fov: 40, position: [0, 2.5, 4], near: 0.5, far: 120 }} gl={{ antialias: !small, powerPreference: 'high-performance' }} style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none' }}>
       <Suspense fallback={null}>
         {scene === 'facade' ? <Facade {...common} /> : scene === 'terrace' ? <Terrace {...common} /> : scene === 'gate' ? <Gate {...common} /> : <Hall kind={scene} img={img} {...common} />}
       </Suspense>

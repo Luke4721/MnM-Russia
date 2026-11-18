@@ -9,7 +9,7 @@
 html.frame-away .catalog__bar { top: 0; }
 .catalog__tabs { display: flex; gap: 0.45rem; overflow-x: auto; scrollbar-width: none; padding-bottom: 0.1rem; }
 .catalog__tabs .chip { flex: none; min-height: 2.4rem; }
-.chip span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip span { color: var(--muted); font-variant-numeric: lining-nums tabular-nums; }
 .chip[aria-pressed='true'] span { color: rgb(255 255 255 / 0.7); }
 .catalog__toggle { margin-top: 0.7rem; }
 .filters { display: none; grid-template-columns: repeat(12, 1fr); gap: 1.4rem var(--col-gap); padding-top: 1.2rem; }
@@ -85,7 +85,7 @@ html.frame-away .catalog__bar { top: 0; }
 .ptable th, .ptable td { text-align: left; padding: 0.7rem 0.9rem 0.7rem 0; border-bottom: 1px solid var(--line); font-weight: 400; vertical-align: top; }
 .ptable thead th { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 2px solid var(--ink); }
 .ptable tbody th { font-weight: 500; }
-.ptable td { font-variant-numeric: tabular-nums; }
+.ptable td { font-variant-numeric: lining-nums tabular-nums; }
 .boarding { position: relative; padding: 1.4rem 1.4rem 1.5rem; background: var(--paper); border: 1px solid var(--line); display: grid; gap: 0.7rem; justify-items: start; }
 .boarding::before, .boarding::after { content: ''; position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--snow); top: 62%; }
 .boarding::before { left: -11px; }
@@ -146,7 +146,7 @@ html.frame-away .catalog__bar { top: 0; }
 .lightbox__img img { max-height: 76svh; width: auto; max-width: 100%; object-fit: contain; }
 .lightbox__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1.4rem; padding: 0.9rem 1.2rem; border-top: 1px solid var(--line); }
 .lightbox__bar .display { font-size: 1.2rem; }
-.lightbox__nav { display: flex; align-items: center; gap: 0.6rem; font-size: var(--t-s); font-variant-numeric: tabular-nums; }
+.lightbox__nav { display: flex; align-items: center; gap: 0.6rem; font-size: var(--t-s); font-variant-numeric: lining-nums tabular-nums; }
 
 /* ───────── About ───────── */
 .about__story { row-gap: 3rem; padding-bottom: clamp(3rem, 7vw, 6rem); }

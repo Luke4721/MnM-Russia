@@ -8,7 +8,7 @@
 .sky__far { bottom: 4%; opacity: 0.75; }
 .hero__title { line-height: 0.95; letter-spacing: -0.035em; }
 .hero__title em { display: block; font-style: italic; color: var(--accent); }
-.hero__scroll { position: absolute; left: var(--gutter); bottom: 1.4rem; z-index: 3; display: flex; align-items: center; gap: 0.8rem; font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+.hero__scroll { position: absolute; left: var(--gutter); bottom: 1.4rem; z-index: 3; display: flex; align-items: center; gap: 0.8rem; font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); font-weight: 500; }
 .hero__scroll i { width: 3.2rem; height: 1px; background: currentColor; transform-origin: left; animation: scrolly 2.4s ease-in-out infinite; }
 @keyframes scrolly { 0%, 100% { transform: scaleX(0.2); } 50% { transform: scaleX(1); } }
 .hero__facts { display: none; }
@@ -16,7 +16,7 @@
 .marquee { overflow: hidden; border-block: 1px solid var(--line); padding-block: 1.1rem; background: var(--paper); }
 .marquee__in { display: flex; width: max-content; font-family: var(--f-display); font-style: italic; font-size: clamp(2rem, 1rem + 4.5vw, 4.6rem); line-height: 1.1; white-space: pre; color: var(--ink); }
 .band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-block: clamp(2.5rem, 5vw, 4.5rem); }
-.band dt { font-family: var(--f-display); font-size: clamp(2.6rem, 1.4rem + 4vw, 5.5rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.band dt { font-family: var(--f-display); font-size: clamp(2.6rem, 1.4rem + 4vw, 5.5rem); line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
 .band dd { font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; }
 
 .portal__stage { position: relative; height: 100svh; overflow: hidden; background: transparent; }
@@ -32,7 +32,7 @@
 
 .hs { position: relative; height: 100svh; overflow: hidden; background: var(--tint, #f3e5d0); transition: background-color 0.6s ease; }
 .hs__head { position: absolute; top: calc(var(--header-h) + 1.2rem); left: var(--gutter); right: var(--gutter); z-index: 2; display: flex; align-items: center; gap: 1.4rem; }
-.hs__count { font-family: var(--f-display); font-size: var(--t-m); font-variant-numeric: tabular-nums; margin-left: auto; }
+.hs__count { font-family: var(--f-display); font-size: var(--t-m); font-variant-numeric: lining-nums tabular-nums; margin-left: auto; }
 .hs__bar { width: min(26vw, 16rem); height: 2px; background: rgb(43 33 26 / 0.15); }
 .hs__bar i { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
 .hs__track { display: flex; align-items: center; gap: clamp(1.2rem, 3vw, 3rem); width: max-content; height: 100%; padding: calc(var(--header-h) + 3.4rem) var(--gutter) 2rem; will-change: transform; }
@@ -80,7 +80,7 @@ html:not(.motion) .hs__track { height: auto; padding-top: 1rem; }
 }
 @media (max-width: 1100px) { .header__phone { display: none; } }
 
-.veil { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 62% 130% at 50% 50%, rgb(251 247 240 / var(--veil, 0.2)) 38%, rgb(251 247 240 / calc(var(--veil, 0.2) * 0.2)) 100%); }
+.veil { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 62% 130% at 50% 50%, rgb(251 247 240 / var(--veil, 0.2)) 30%, rgb(251 247 240 / calc(var(--veil, 0.2) * 0.82)) 100%); }
 .marquee { background: rgb(255 253 249 / 0.7); }
 .dock { position: fixed; right: var(--gutter); bottom: 1rem; z-index: 45; display: flex; gap: 0.5rem; align-items: center; pointer-events: none; }
 .dock button { pointer-events: auto; }
@@ -141,3 +141,13 @@ html:not(.gl) .veil { background: var(--snow); }
 .calm-btn { padding: 0.45rem 0.85rem; border-radius: 99px; background: rgb(255 253 249 / 0.78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--line); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--muted); }
 .calm-btn[aria-pressed='true'] { background: var(--ink); color: #fff; border-color: var(--ink); }
 html.calm .hero__scroll i, html.calm .lux .gold { animation: none; }
+
+/* chapter rail labels sit on a small ivory chip so they read over photographs */
+.rail a.on span, .rail a:hover span { padding: 0.15rem 0.55rem; background: rgb(251 247 240 / 0.92); border-radius: 99px; }
+
+/* the portal photograph: warm maroon shade instead of grey, a gilded inner frame, type that holds on any image */
+.portal__img::after { background: linear-gradient(180deg, rgb(70 22 8 / 0.18) 0%, rgb(70 22 8 / 0) 30%, rgb(52 14 4 / 0.82) 100%), radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgb(52 14 4 / 0.45)); }
+.portal__img::before { content: ''; position: absolute; inset: clamp(14px, 2.2vw, 30px); z-index: 2; border: 1px solid rgb(236 212 154 / 0.7); box-shadow: inset 0 0 0 5px rgb(236 212 154 / 0.14); pointer-events: none; }
+.portal__text .eyebrow { color: #f6dd9a; font-weight: 600; letter-spacing: 0.22em; text-shadow: 0 1px 14px rgb(40 10 0 / 0.7); }
+.portal__text h2 { text-shadow: 0 2px 30px rgb(40 10 0 / 0.6); }
+.portal__text h2 em, .portal__text h2 i { color: #f6dd9a; }

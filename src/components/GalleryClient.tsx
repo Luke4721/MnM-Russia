@@ -9,6 +9,7 @@ import type { GalleryItem } from '@/lib/types';
 export function GalleryClient({ items }: { items: GalleryItem[] }) {
   const [theme, setTheme] = useState('');
   const [idx, setIdx] = useState<number | null>(null);
+  const [shown, setShown] = useState(48); // 786 photographs at once weigh ~100 MB; show a batch and ask for more
   const dlg = useRef<HTMLDialogElement>(null);
   const root = useRef<HTMLDivElement>(null);
   const themes = useMemo(() => { const m: Record<string, number> = {}; items.forEach((g) => { if (g.tg) m[g.tg] = (m[g.tg] || 0) + 1; }); return Object.entries(m).sort((a, b) => b[1] - a[1]); }, [items]);
@@ -40,11 +41,11 @@ export function GalleryClient({ items }: { items: GalleryItem[] }) {
   return (
     <div className="gallery" ref={root}>
       <div className="gallery__filters wrap" role="group" aria-label="Темы">
-        <button type="button" className="chip" aria-pressed={!theme} onClick={() => setTheme('')}>Все <span>{items.length}</span></button>
-        {themes.map(([t, n]) => <button key={t} type="button" className="chip" aria-pressed={theme === t} onClick={() => setTheme(theme === t ? '' : t)}>{t} <span>{n}</span></button>)}
+        <button type="button" className="chip" aria-pressed={!theme} onClick={() => { setTheme(''); setShown(48); }}>Все <span>{items.length}</span></button>
+        {themes.map(([t, n]) => <button key={t} type="button" className="chip" aria-pressed={theme === t} onClick={() => { setTheme(theme === t ? '' : t); setShown(48); }}>{t} <span>{n}</span></button>)}
       </div>
       <ul className="gallery__grid wrap">
-        {list.map((g, i) => (
+        {list.slice(0, shown).map((g, i) => (
           <li key={g.id} className="gtile" style={{ aspectRatio: `${g.w} / ${g.h}`, '--c': g.c } as React.CSSProperties}>
             <button type="button" onClick={() => setIdx(i)} aria-label={`Открыть фото: ${g.t}`}>
               <Image src={imgSrc(g.id)} alt={g.t} fill sizes="(max-width: 767px) 92vw, (max-width: 1100px) 46vw, 31vw" quality={70} />
@@ -52,7 +53,8 @@ export function GalleryClient({ items }: { items: GalleryItem[] }) {
           </li>
         ))}
       </ul>
-      <dialog ref={dlg} className="lightbox" onClose={() => setIdx(null)} onClick={(e) => { if (e.target === dlg.current) setIdx(null); }} aria-label="Просмотр фотографии">
+      {shown < list.length && <div className="gallery__more wrap"><button type="button" className="btn btn--ghost" onClick={() => setShown((n) => n + 48)}><span className="btn__label">Показать ещё · {list.length - shown}</span></button></div>}
+      <dialog data-lenis-prevent ref={dlg} className="lightbox" onClose={() => setIdx(null)} onClick={(e) => { if (e.target === dlg.current) setIdx(null); }} aria-label="Просмотр фотографии">
         {cur && (
           <div className="lightbox__inner">
             <div className="lightbox__img"><Image src={imgSrc(cur.id)} alt={cur.t} width={cur.w} height={cur.h} sizes="92vw" quality={80} /></div>

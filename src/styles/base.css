@@ -1,17 +1,17 @@
 /* Minimal, warm, light. One ink, one accent, hairlines, photography does the colour. */
 :root {
-  --snow: #fbf7f0; --paper: #fffdf9; --ink: #2b211a; --muted: #766759; --line: #e6dac8; --line-2: #cdbca5;
+  --snow: #fbf7f0; --paper: #fffdf9; --ink: #1f1610; --muted: #54463a; --line: #e6dac8; --line-2: #cdbca5;
   --accent: #a8470f; --accent-soft: #f4e4d0; --leaf: #4a7c3a; --vermilion: #b23a1e; --turmeric: #c58a12;
   --action: var(--accent); --gold: var(--accent); --gulal: var(--accent);
   --f-display: var(--font-display), Georgia, serif; --f-body: var(--font-text), system-ui, sans-serif; --f-deva: var(--font-deva), serif;
-  --t-mega: clamp(3rem, 1rem + 7vw, 8.5rem); --t-xl: clamp(2.2rem, 1.2rem + 3.8vw, 5rem); --t-l: clamp(1.7rem, 1.2rem + 2vw, 3rem);
-  --t-m: clamp(1.25rem, 1.05rem + 0.6vw, 1.6rem); --t-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem); --t-s: 0.875rem; --t-xs: 0.78rem;
+  --t-mega: clamp(2.7rem, 1rem + 5.6vw, 7rem); --t-xl: clamp(2rem, 1.1rem + 3vw, 4.1rem); --t-l: clamp(1.55rem, 1.15rem + 1.6vw, 2.5rem);
+  --t-m: clamp(1.15rem, 1rem + 0.55vw, 1.45rem); --t-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem); --t-s: 0.875rem; --t-xs: 0.78rem;
   --gutter: clamp(1.1rem, 0.5rem + 2.4vw, 3.2rem); --col-gap: clamp(1rem, 0.6rem + 1.6vw, 2.4rem); --header-h: 4.25rem; --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: none; background: var(--snow); color: var(--ink); scroll-behavior: smooth; }
-body { min-height: 100dvh; background: transparent; font-family: var(--f-body); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+html { scroll-padding-top: 5.5rem; -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: none; background: var(--snow); color: var(--ink); scroll-behavior: smooth; }
+body { font-variant-numeric: lining-nums; min-height: 100dvh; background: transparent; font-family: var(--f-body); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img, svg, canvas { display: block; max-width: 100%; }
 img { height: auto; }
 input, button, textarea, select { font: inherit; color: inherit; }
@@ -75,7 +75,7 @@ button.chip[aria-pressed='true'] span { color: rgb(255 255 255 / 0.7); }
 .brand__name { font-family: var(--f-display); font-size: 1.35rem; font-weight: 500; white-space: nowrap; }
 .site-nav ul { display: flex; justify-content: center; gap: clamp(1rem, 2.2vw, 2.4rem); font-size: var(--t-s); }
 .header__right { display: flex; align-items: center; gap: 1.1rem; }
-.header__phone { white-space: nowrap; font-size: var(--t-s); font-variant-numeric: tabular-nums; }
+.header__phone { white-space: nowrap; font-size: var(--t-s); font-variant-numeric: lining-nums tabular-nums; }
 .menu-btn { display: none; min-height: 2.75rem; font-size: var(--t-s); font-weight: 500; }
 .site-footer { padding: clamp(3.5rem, 7vw, 7rem) var(--gutter) 2rem; border-top: 1px solid var(--line); background: var(--paper); }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--col-gap); font-size: var(--t-s); }

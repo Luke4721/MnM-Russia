@@ -29,7 +29,7 @@ export function Header() {
         <Image src="/brand/logo.png" alt="" width={34} height={39} priority />
         <span className="brand__name">Monks &amp; Monkeys</span>
       </Link>
-      <nav aria-label="Разделы" className={`site-nav ${open ? 'is-open' : ''}`} id="site-nav">
+      <nav data-lenis-prevent aria-label="Разделы" className={`site-nav ${open ? 'is-open' : ''}`} id="site-nav">
         <ul>
           {NAV.map((n) => (
             <li key={n.href}>
